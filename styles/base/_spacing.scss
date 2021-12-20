@@ -1,0 +1,23 @@
+// breakpoints
+@use '../constants/breakpoints' as *;
+
+/*--------------------------------------------------------------
+# Styling
+--------------------------------------------------------------*/
+.container {
+    padding: 3rem 5rem;
+}
+
+/* BREAKPOINT LARGE */
+@media ( max-width: $breakpoint--large ) {
+    .container {
+        padding: 2.1rem 3.5rem;
+    }
+}
+
+/* BREAKPOINT MEDIUM */
+@media ( max-width: $breakpoint--medium ) {
+    .container {
+        padding: 1.5rem 2.5rem;
+    }
+}

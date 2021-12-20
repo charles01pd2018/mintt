@@ -1,0 +1,13 @@
+// dependencies
+@use 'sass:color';
+
+/*--------------------------------------------------------------
+# Useful Color Adjustment Functions
+--------------------------------------------------------------*/
+// returns shadow color - 2 = darker, 1 = lighter
+@function getShadowColors( $color ) {
+    @return (
+        2: color.adjust( $color, $lightness: -50% ),
+        1: color.adjust( $color, $lightness: -30% ),
+    );
+}

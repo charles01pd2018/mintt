@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+# Useful Selector Combinations
+--------------------------------------------------------------*/
+// includes both the mouse over and focus state
+// focus state is for mobile devices and tab focused elements
+@mixin tap {
+    &:hover,
+    &:focus {
+        @content;
+    }
+}
+
+// both the before and after selectors in one
+@mixin adjacent {
+    &:before,
+    &:after {
+        @content;
+    }
+}

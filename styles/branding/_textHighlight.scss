@@ -1,0 +1,22 @@
+// dependencies
+@use 'sass:map';
+// colors
+@use '../constants/colors' as *;
+
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+$text-highlight--color:                 map.get( $colors, 'green', 2 );
+
+/*--------------------------------------------------------------
+# Styling
+--------------------------------------------------------------*/
+/* WEBKIT / BLINK BROWSERS */
+::selection {
+    background: $text-highlight--color; 
+}
+
+/* GECKO BROWSERS */
+::-moz-selection {
+    background: $text-highlight--color; 
+}

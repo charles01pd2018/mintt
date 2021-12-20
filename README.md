@@ -1,2 +1,2 @@
-# gift-card
- Virtual Gift Cards
+# nextjs template
+Next.js Starting Template

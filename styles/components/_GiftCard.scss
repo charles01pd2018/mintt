@@ -1,0 +1,108 @@
+// dependencies
+@use 'sass:map';
+@use 'sass:math';
+// constants
+@use '../constants/colors' as *;
+// utils
+@use '../utils/position' as *;
+@use '../utils/selectors' as *;
+
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+$gift-card--border-radius:                 9px;
+
+$gift-card--move-transition:               0.1s ease-out;
+$gift-card--border-transition:             0.22s ease;
+
+$gift-card--shine-opacity:                 0.5;
+$gift-card--shine-brightness:              0.5;
+$gift-card--sparkle-opacity:               0.75;
+$gift-card--sparkle-gif-url:               "/public/static/gifs/sparkles.gif";
+$gift-card--sparkle-image-url:             "/public/static/images/sparkles.webp";
+
+/*--------------------------------------------------------------
+# Styling
+--------------------------------------------------------------*/
+.gift-card-container {
+    width: max-content;
+    transform-style: preserve-3d;
+
+    // DELETE
+    padding-top: 3rem;
+    margin: auto;
+
+    .gift-card-wrapper {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        will-change: transform, filter, perspective;
+
+        // DELETE
+        color: white;
+        background: linear-gradient(180deg, #ff7147, #e0417f); // red / orange
+
+        transition: transform $gift-card--move-transition,
+                    filter $gift-card--move-transition,
+                    perspective $gift-card--move-transition;
+
+        /* STYLING */
+        &.sparkle {
+            $shine-color-1: map.get( $colors, 'blue', 3 );
+            $shine-color-2: map.get( $colors, 'pink', 4 );
+
+            @include adjacent {
+                content: "";
+                @include zero-absolute;
+                mix-blend-mode: color-dodge;
+            }
+            
+            // shinging glimmer and light effect
+            &:before {
+                background-position: 50% 50%;
+                background-size: 300% 300%;
+                background-image: linear-gradient(
+                  115deg,
+                  transparent 0%,
+                  $shine-color-1 25%,
+                  transparent 47%,
+                  transparent 53%,
+                  $shine-color-2 75%,
+                  transparent 100%
+                );
+                opacity: $gift-card--shine-opacity;
+                filter: brightness($gift-card--shine-brightness);
+            }
+
+            // background sparkle
+            &:after {
+                background-image: url($gift-card--sparkle-gif-url), 
+                    url($gift-card--sparkle-image-url),
+                    linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+                background-position: 50% 50%;
+                background-size: 160%;
+                background-blend-mode: overlay;
+                opacity: $gift-card--sparkle-opacity;
+            }
+        }
+
+        &.show-animate {
+            @keyframes show-animate {
+                0%, 100% {
+                    transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+                }
+                70% {
+                    transform: rotateX(10deg) rotateY(10deg);
+                }
+            }
+
+            animation: show-animate 1s ease-out 0.2s;
+        }
+
+        /* SHAPE */
+        &.rounded {
+            border-radius: $gift-card--border-radius;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+  
+object {
+    pointer-events: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea,
+fieldset {
+    font-family: inherit;
+    font-size: 100%; 
+    border: none;
+    background: none;
+}
+
+label {
+    cursor: text;
+}
+
+button {
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    &:disabled {
+        pointer-events: none;
+        color: inherit;
+    }
+}

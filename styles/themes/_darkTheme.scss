@@ -1,0 +1,22 @@
+// dependencies
+@use 'sass:colors';
+@use 'sass:math';
+
+/*--------------------------------------------------------------
+# TO-DO - Variations needed
+    1 - logo
+    2 - background-color
+    3 - text-color
+    4 - text highlight color
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Functions
+--------------------------------------------------------------*/
+@function convertToDarkColor( $color, $color-weight ) {
+    // this color scale is not tested lol
+    $color-scale: math.div( 1, $color-weight ) * 30%;
+
+    @return color.adjust( $color, $lightness: $color-scale );
+}

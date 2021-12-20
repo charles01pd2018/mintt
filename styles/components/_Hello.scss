@@ -1,0 +1,10 @@
+// breakpoints
+@use '../constants/breakpoints' as *;
+
+.hello-container {
+    text-align: center;
+
+    @media ( max-width: $breakpoint--large ) {
+        text-align: left;
+    }
+}
