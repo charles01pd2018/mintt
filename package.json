@@ -1,18 +1,25 @@
 {
-  "name": "nextjs-starting-template",
-  "description": "This is going to be the greatest app ever!!!",
+  "name": "mintt",
+  "description": "Don't spend it all in one place!",
+  "keywords": [
+    "merry",
+    "christmas",
+    "liz!"
+  ],
   "version": "0.1.0",
   "author": "pofo",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "experience-this-amazing-gift-locally": "next dev"
   },
   "dependencies": {
     "next": "12.0.2",
-    "react": "17.0.2",
+    "react": "^17.0.2",
     "react-dom": "17.0.2",
+    "react-tsparticles": "^1.37.5",
     "sass": "^1.43.4",
     "use-debounce": "^7.0.1"
   },

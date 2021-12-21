@@ -18,6 +18,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "skipLibCheck": true,
     "paths": {
       "@components/*": [
         "components/*"
@@ -41,7 +42,6 @@
         "elements/*"
       ]
     },
-    "skipLibCheck": true
   },
   "include": [
     "next-env.d.ts",

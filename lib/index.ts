@@ -1,5 +1,6 @@
 import { getClientCoords, getRectSize } from './events';
 import { colors, background, shadow } from './constants';
+import { changeArrayIndex } from './data';
 
 export {
     getClientCoords,
@@ -7,4 +8,5 @@ export {
     colors,
     background,
     shadow,
+    changeArrayIndex,
 }

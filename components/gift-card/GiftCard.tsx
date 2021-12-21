@@ -57,7 +57,7 @@ const GiftCard: FC<Props> = ( {
     showAnimate=true,
     animateInterval=6000,
     sparkle=true,
-    shadow='orange',
+    shadow='blue',
 } ) => {
 
     /* ERRORS */
@@ -158,9 +158,9 @@ const GiftCard: FC<Props> = ( {
         // default distort values are suitable for smaller buttons
         // make values bigger for bigg sized elements
         const {
-            xDistort=6,
-            yDistort=4,
-            shadowDistort=3,
+            xDistort=24,
+            yDistort=16,
+            shadowDistort=0.3,
         } = distort;
 
         // TO-DO - test this on a mobile device

@@ -1,6 +1,6 @@
 // constants 
 @use '../constants/breakpoints' as *;
-@use '../constants/fontStyles' as fontList;
+@use '../constants/fontStyles' as *;
 
 /*--------------------------------------------------------------
 # Variables
@@ -50,14 +50,21 @@ $font-sizing-map: (
 /*--------------------------------------------------------------
 # CUSTOM FONTS - Font Family
 --------------------------------------------------------------*/
-// @each $font-name, $font-style in $fontList {
-//     @font-face {
-//         font-family: $font;
-//         src: url( '/static/fonts/#{$font-name}/#{$font-name}--#{$font-style}.ttf' );
-//         font-style: $font-style;
-//         font-display: swap;
-//     }
-// }
+@each $font-name, $font-style in $font-list {
+    @font-face {
+        font-family: $font-name;
+        src: url( '/static/fonts/#{$font-name}/#{$font-name}-#{$font-style}.ttf' );
+        font-style: normal;
+        font-display: swap;
+    }
+}
+
+@font-face {
+    font-family: 'Mullish';
+    src: url( "/static/fonts/mullish/Mullish-Medium.ttf" );
+    font-style: normal;
+    font-display: swap;
+}
 
 /*--------------------------------------------------------------
 # Helper

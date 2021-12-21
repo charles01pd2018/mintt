@@ -18,19 +18,19 @@ $gift-card--border-transition:             0.22s ease;
 $gift-card--shine-opacity:                 0.5;
 $gift-card--shine-brightness:              0.5;
 $gift-card--sparkle-opacity:               0.75;
-$gift-card--sparkle-gif-url:               "/public/static/gifs/sparkles.gif";
-$gift-card--sparkle-image-url:             "/public/static/images/sparkles.webp";
+$gift-card--sparkle-gif-url:               "/static/gifs/sparkles.gif";
+$gift-card--sparkle-image-url:             "/static/images/sparkles.webp";
 
 /*--------------------------------------------------------------
 # Styling
 --------------------------------------------------------------*/
 .gift-card-container {
-    width: max-content;
+    // width: 40rem;
+    width: clamp( 5rem, 65vw, 30rem );
     transform-style: preserve-3d;
 
-    // DELETE
-    padding-top: 3rem;
-    margin: auto;
+    @include center-absolute;
+    transform: translate( -50%, -70% );
 
     .gift-card-wrapper {
         display: block;
@@ -41,7 +41,8 @@ $gift-card--sparkle-image-url:             "/public/static/images/sparkles.webp"
 
         // DELETE
         color: white;
-        background: linear-gradient(180deg, #ff7147, #e0417f); // red / orange
+        // background: linear-gradient(180deg, #ff7147, #e0417f); // red / orange
+        background: map.get( $brands, 'spotify' );
 
         transition: transform $gift-card--move-transition,
                     filter $gift-card--move-transition,
@@ -103,6 +104,23 @@ $gift-card--sparkle-image-url:             "/public/static/images/sparkles.webp"
         /* SHAPE */
         &.rounded {
             border-radius: $gift-card--border-radius;
+        }
+
+        /* CHILDREN */
+        .gift-card-price,
+        .gift-card-code,
+        .gift-card-msg {
+            text-align: center;
+        }
+
+        .gift-card-code {
+            z-index: 5;
+            color: black;
+            font-weight: bold;
+        }
+
+        .gift-card-msg {
+            margin-top: 2rem;
         }
     }
 }
