@@ -3,6 +3,8 @@ import { FC } from 'react';
 import { ISourceOptions } from 'tsparticles';
 // hooks
 import { useAudio } from 'hooks';
+// lib
+import { getRandomInt } from 'lib';
 // installed components
 import Particles from "react-tsparticles";
 
@@ -110,13 +112,13 @@ interface DefaultLayoutProps {
 
 const DefaultLayout: FC<DefaultLayoutProps> = ({
     children,
-    song=Math.floor( Math.random() * 4 ),
+    song=getRandomInt( 4 ),
 }) => {
 
-    const toggleAudio = useAudio( music[ song ], { play: true } );
+    const toggleAudio = useAudio( music[ song ] );
 
     const playSong = () => {
-        toggleAudio( 'play' );
+        toggleAudio();
     }
 
     return (

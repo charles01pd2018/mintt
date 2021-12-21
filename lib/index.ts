@@ -1,6 +1,6 @@
 import { getClientCoords, getRectSize } from './events';
 import { colors, background, shadow } from './constants';
-import { changeArrayIndex } from './data';
+import { changeArrayIndex, getRandomInt} from './data';
 
 export {
     getClientCoords,
@@ -9,4 +9,5 @@ export {
     background,
     shadow,
     changeArrayIndex,
+    getRandomInt,
 }

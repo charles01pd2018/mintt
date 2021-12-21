@@ -1,0 +1,138 @@
+// dependencies
+@use 'sass:string';
+@use 'sass:map';
+@use 'sass:color';
+// constants
+@use '../constants/colors' as *;
+// utils
+@use '../utils/selectors' as *;
+@use '../utils/colors' as *;
+@use '../utils/position' as *;
+
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+$button-lg--padding:                1.5rem;
+$button-md--padding:                1.25rem;
+$button-sm--padding:                1rem;
+$button--default-padding:           0.8rem;
+
+$button--border-radius:             5px;
+$link-button--border-radius:        15px;
+
+$button--transition:                0.24s ease;
+
+$button--text-color:                #000;
+
+// DARKER box-shadow size
+$button--box-shadow--size2: 1px 1px 2px;
+// LIGHTER box-shadow size
+$button--box-shadow--size1: 1px 1px 4px 0.35px;
+
+/*--------------------------------------------------------------
+# Styling
+--------------------------------------------------------------*/
+.button-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: $button--default-padding;
+    text-shadow: white 0 0 10px;
+    color: $button--text-color;
+}
+
+
+.link-button-container {
+    @include tap {
+        .CTA {
+            box-shadow: 0 6px 6px map.get( $shadow, 2 );
+    
+            .link-button-text {
+                .arrow {
+                    color: map.get( $colors, 'brand-blue', 5 );
+                    transform: translateX( 1.5px );
+                }
+            }
+        }
+    }
+
+    @include tap {
+        .sticky {
+            border-radius: 0 50% 0 0;
+            box-shadow: 0 3px 3px map.get( $shadow, 2 ),
+                        0 0 1px black;
+        }
+    }
+
+    .link-button-wrapper {
+        width: max-content;
+        box-shadow: 0 3px 3px map.get( $shadow, 2 );
+    
+        transition: background $button--transition,
+                    box-shadow $button--transition;
+
+        /* TYPES */
+        // main navigation button that you want people to click
+        &.CTA {
+            .link-button-text {
+                display: flex;
+                flex-flow: row wrap;
+    
+                    .arrow {
+                        padding-left: 0.4rem;
+    
+                        transition: transform $button--transition,
+                                    color $button--transition;
+                    }
+                }
+    
+                /* SHAPE */
+                &.rounded {
+                    border-radius: $link-button--border-radius;
+                }
+            }
+            
+        // peel away sticky note
+        &.sticky {
+            transition: border-radius $button--transition,
+                        box-shadow $button--transition;
+    
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: -5%;
+                width: 1rem;
+                height: 1rem;
+                background: black;
+    
+                transform: rotate( 45deg );
+            }
+        }
+    
+        /* COLORS */
+        @each $color-name, $color in $background {
+            &.#{$color-name} {
+                $shadow-colors: getShadowColors( $color );
+    
+                background: $color;
+    
+                @include tap {
+                    background: color.adjust( $color, $alpha: -0.22 );                
+                }
+            }
+        }
+    }
+}
+
+/* SIZES */
+.button--lg {
+    padding-inline: $button-lg--padding;
+}
+
+.button--md {
+    padding-inline: $button-md--padding;
+}
+
+.button--sm {
+    padding-inline: $button-sm--padding;
+}

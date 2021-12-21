@@ -3,6 +3,7 @@
 @use 'sass:math';
 // constants
 @use '../constants/colors' as *;
+@use '../constants/breakpoints' as *;
 // utils
 @use '../utils/position' as *;
 @use '../utils/selectors' as *;
@@ -30,7 +31,7 @@ $gift-card--sparkle-image-url:             "/static/images/sparkles.webp";
     transform-style: preserve-3d;
 
     @include center-absolute;
-    transform: translate( -50%, -70% );
+    transform: translate( -50%, -65% );
 
     .gift-card-wrapper {
         display: block;
@@ -113,14 +114,37 @@ $gift-card--sparkle-image-url:             "/static/images/sparkles.webp";
             text-align: center;
         }
 
+        .gift-card-price {
+            font-size: clamp( 4.5rem, 6vw, 10rem );
+
+            @media ( max-width: $breakpoint--small ) {
+                margin: 1rem;
+            }
+        }
+
         .gift-card-code {
-            z-index: 5;
             color: black;
             font-weight: bold;
+            font-size: clamp( 1.8rem, 2vw, 4rem );
         }
 
         .gift-card-msg {
-            margin-top: 2rem;
+            font-size: clamp( 1.15rem, 1.2vw, 2rem );
+            margin-top: 1.5rem;
+        }
+
+        .gift-card-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50% );
         }
     }
+}
+
+.link-button-container {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate( -50%, -50% );
 }

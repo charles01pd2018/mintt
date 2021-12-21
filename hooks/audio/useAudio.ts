@@ -24,7 +24,7 @@ const useAudio = (
 
     /* FUNCTIONS */
     const toggleAudio = (
-        toggleType: ( 'pause' | 'play' ),
+        toggleType: ( 'pause' | 'play' | undefined )=undefined,
     ) => {
         if ( toggleType === 'pause' ) {
             audio.current?.pause();
