@@ -99,7 +99,9 @@ $gift-card--sparkle-image-url:             "/static/images/sparkles.webp";
                 }
             }
 
-            animation: show-animate 1s ease-out 0.2s;
+            @media ( min-width: $breakpoint--small ) {
+                animation: show-animate 1s ease-out 0.2s;
+            }
         }
 
         /* SHAPE */
