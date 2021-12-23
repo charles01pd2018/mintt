@@ -1,6 +1,7 @@
 // dependencies
 import { FC, useEffect, useRef, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
+import { isMobile } from 'react-device-detect';
 // types
 import { TapEvent, ReactTapEvent, ConditionalProps } from 'types';
 import type { Distort, Styles, ParentStyles, SmoothAnimationStyles, Shadow } from './types';
@@ -60,6 +61,11 @@ const GiftCard: FC<Props> = ( {
     shadow='blue',
 } ) => {
 
+    if ( isMobile ) {
+        smoothAnimate = false;
+        showAnimate = false;
+    }
+
     /* ERRORS */
     if ( smoothAnimate && showAnimate ) 
         throw( TypeError('smoothAnimate and showAnimate cannot be both set to true at the same time') );
@@ -103,6 +109,8 @@ const GiftCard: FC<Props> = ( {
     }
 
     const reset = () => {
+        if ( isMobile )
+            return;
         if ( smoothAnimate ) smoothAnimateGiftCard();
         else setStyles( {
                transform: `rotateX(0deg) rotateY(0deg) scale(1)`,
@@ -115,6 +123,9 @@ const GiftCard: FC<Props> = ( {
     }
    
     const initGiftCard = ( target: HTMLElement ) => {
+        if ( isMobile )
+            return;
+
         const rect = target.getBoundingClientRect();
 
         setStyles( {
@@ -140,6 +151,9 @@ const GiftCard: FC<Props> = ( {
         distort: Distort,
         type: ( 'enter' | null )=null,
     ): void => {
+        if ( isMobile )
+            return;
+            
         if ( showAnimate ) {
             setIsShowAnimate( false );
 
