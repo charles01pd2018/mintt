@@ -53,7 +53,7 @@ const Home = ( {
           </GiftCard>
           <LinkButton className='gift-card-link' content={{
               text: 'See Your Starter Playlist!'
-            }} href='https://open.spotify.com/playlist/0XYMRycHTDVrS0SRaP2KjZ?si=qc0WrfLaTSaL7ZaSO0kkWw'
+            }} href={PLAYLIST_LINK}
             size='lg' color='alice-blue' />
         </DefaultLayout>
     </>

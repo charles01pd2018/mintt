@@ -1,5 +1,5 @@
 // dependencies
-import { useEffect, type RefObject } from 'react';
+import { useEffect, RefObject } from 'react';
 
 /* TYPES */
 type TapEvent = MouseEvent | TouchEvent;
